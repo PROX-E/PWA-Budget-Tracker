@@ -52,3 +52,6 @@ request.onerror = function(event) {
   };
         
   };
+  
+// listen for app coming back online
+window.addEventListener("online", checkDatabase);
