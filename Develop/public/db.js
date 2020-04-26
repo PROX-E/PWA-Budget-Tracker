@@ -14,3 +14,14 @@ request.onsuccess = function(event) {
       checkDatabase();
     }
   };
+  
+request.onerror = function(event) {
+    console.log("Ah Jeez Rick, an error:" + event.target.errorCode);
+  };
+  
+  function saveRecord(record) {
+    const transaction = db.transaction(["pending"], "readwrite");
+    const store = transaction.objectStore("pending");
+  
+    store.add(record);
+  }
